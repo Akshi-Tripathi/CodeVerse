@@ -4,6 +4,7 @@ import { cpp } from "@codemirror/lang-cpp";
 import { javascript } from "@codemirror/lang-javascript";
 import { python } from "@codemirror/lang-python";
 import { xml } from "@codemirror/lang-xml";
+// import { java } from "@codemirror/lang-java";
 import { lintGutter } from "@codemirror/lint";
 import { EditorState } from "@codemirror/state";
 import { oneDark } from "@codemirror/theme-one-dark";
@@ -15,6 +16,9 @@ import { compileCode, deleteFile, fetchProfile, getAllProjectFiles, getFileConte
 import { useAuth } from "../context/AuthContext";
 import '../styles/Codespace.css';
 import Chat from './Chat';
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:5000"); // Connect to the backend
 
 function CodeEditor({ language = "JavaScript" }) {
   const { projectId } = useParams();
@@ -133,6 +137,45 @@ useEffect(() => {
         }
     }
 }, [currentFile, files, language, theme]);
+
+  useEffect(() => {
+    // Join the project room
+    socket.emit("joinRoom", projectId);
+    console.log('Joined room:', projectId);
+
+    // Listen for file updates
+    socket.on("fileUpdate", ({ filePath, content }) => {
+      console.log('File updated:', filePath, content);
+      setFiles((prevFiles) =>
+        prevFiles.map((file) =>
+          file.filepath === filePath ? { ...file, content } : file
+        )
+      );
+      if (currentFile === filePath) {
+        const state = EditorState.create({
+          doc: content,
+          extensions: [
+            keymap.of([...defaultKeymap, indentWithTab]),
+            autocompletion(),
+            lintGutter(),
+            languageExtensions[language] || javascript(),
+          ],
+        });
+        editorViewRef.current.setState(state);
+      }
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [projectId, currentFile, language]);
+
+  const handleFileChange = (content) => {
+    if (currentFile) {
+      console.log('Emitting fileChange:', { projectId, filePath: currentFile, content });
+      socket.emit("fileChange", { projectId, filePath: currentFile, content });
+    }
+  };
 
   const handleCompileCode = async () => {
     await handleSaveFile();
@@ -265,10 +308,7 @@ useEffect(() => {
 
   return (
     <div className="codespace-container">
-      <div className="navbar">
-        <h1>CoderzHub Editor</h1>
-        
-      </div>
+      
       <div className="codespace-layout">
         <div className="file-explorer">
           <h3>Explorer</h3>

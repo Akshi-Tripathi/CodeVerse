@@ -4,7 +4,7 @@ import { getChats } from '../api';
 import '../styles/ChatWindow.css';
 
 const socket = io('http://localhost:5000', {
-    transports: ['websocket', 'polling'], // Ensure compatibility with different transport methods
+    transports: ['websocket', 'polling'],
 });
 
 const ChatWindow = ({ projectId, username, onClose }) => {
@@ -13,10 +13,8 @@ const ChatWindow = ({ projectId, username, onClose }) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Join the project room
         socket.emit('joinRoom', projectId);
 
-        // Fetch chat history
         const fetchChats = async () => {
             try {
                 const response = await getChats(projectId);
@@ -24,16 +22,14 @@ const ChatWindow = ({ projectId, username, onClose }) => {
             } catch (err) {
                 console.error('Error fetching chats:', err);
                 setError(err.message || 'Failed to fetch chats.');
-                setMessages([]); // Reset messages to an empty array on error
+                setMessages([]); 
             }
         };
 
         fetchChats();
 
-        // Listen for new messages
         const handleReceiveMessage = (data) => {
             setMessages((prevMessages) => {
-                // Avoid adding duplicate messages
                 if (!prevMessages.some((msg) => msg._id === data._id)) {
                     return [...prevMessages, data];
                 }
@@ -43,7 +39,6 @@ const ChatWindow = ({ projectId, username, onClose }) => {
 
         socket.on('receiveMessage', handleReceiveMessage);
 
-        // Cleanup on component unmount
         return () => {
             socket.off('receiveMessage', handleReceiveMessage);
         };
@@ -53,20 +48,17 @@ const ChatWindow = ({ projectId, username, onClose }) => {
         if (message.trim() === '') return;
 
         const newMessage = {
-            _id: Date.now(), // Temporary ID for local state
+            _id: Date.now(), 
             projectId,
             username,
             message,
             timestamp: new Date(),
         };
 
-        // Emit the message to the server
         socket.emit('sendMessage', newMessage);
 
-        // Add the message to the local state
         setMessages((prevMessages) => [...prevMessages, newMessage]);
 
-        // Clear the input field
         setMessage('');
     };
 

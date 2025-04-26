@@ -42,22 +42,35 @@ if (!fs.existsSync(projectsDir)) {
   fs.mkdirSync(projectsDir);
 }
 
+let projectFiles = {}; // Store file content for each project
+
 // Socket.IO connection
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
-
-    // Listen for new chat messages
-    socket.on('sendMessage', (data) => {
-        console.log('Message received:', data);
-
-        // Broadcast the message to all connected clients in the same room
-        io.to(data.projectId).emit('receiveMessage', data);
-    });
 
     // Join a specific project room
     socket.on('joinRoom', (projectId) => {
         socket.join(projectId);
         console.log(`User joined room: ${projectId}`);
+        if (projectFiles[projectId]) {
+            socket.emit('loadFiles', projectFiles[projectId]);
+        } else {
+            projectFiles[projectId] = {}; // Initialize project files if not present
+        }
+    });
+
+    // Handle file changes
+    socket.on('fileChange', ({ projectId, filePath, content }) => {
+        if (!projectFiles[projectId]) projectFiles[projectId] = {};
+        projectFiles[projectId][filePath] = content; // Update the file content
+        socket.to(projectId).emit('fileUpdate', { filePath, content }); // Broadcast changes
+    });
+
+    // Handle chat messages
+    socket.on("message", ({ projectId, username, text }) => {
+        console.log(`Message received in project ${projectId}:`, { username, text });
+        // Broadcast the message to all users in the same room
+        socket.to(projectId).emit("message", { username, text });
     });
 
     // Handle user disconnect

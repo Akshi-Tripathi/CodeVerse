@@ -50,7 +50,7 @@ const Home = () => {
             </section>
 
             <section className="features">
-                <h2>Why Choose CoderzHub?</h2>
+                <h2>Why Choose CodeVerse?</h2>
                 <div className="features-grid">
                     <div className="feature-card">
                         <h3>🚀 Live Code Collaboration</h3>
@@ -80,7 +80,7 @@ const Home = () => {
             </section>
 
             <section className="how-it-works">
-                <h2>How CoderzHub Works?</h2>
+                <h2>How CodeVerse Works?</h2>
                 <div className="steps">
                     <div className="step">
                         <h3>1️⃣ Create Your Team</h3>
@@ -98,7 +98,7 @@ const Home = () => {
             </section>
 
             <section className="use-cases">
-                <h2>Who is CoderzHub for?</h2>
+                <h2>Who is CodeVerse for?</h2>
                 <div className="use-case-grid">
                     <div className="use-case-card">
                         <h3>👨‍💻 Freelancers</h3>
@@ -118,7 +118,7 @@ const Home = () => {
             <section className="testimonials">
                 <h2>What Developers Say</h2>
                 <div className="testimonial-card">
-                    <p>"CoderzHub transformed the way I collaborate. The live coding feature is a game-changer!"</p>
+                    <p>"CodeVerse transformed the way I collaborate. The live coding feature is a game-changer!"</p>
                     <h4>- Alex Johnson, Software Engineer</h4>
                 </div>
                 <div className="testimonial-card">
@@ -129,7 +129,7 @@ const Home = () => {
 
             <section className="cta">
                 <h2>Ready to Code Smarter?</h2>
-                <p>Join thousands of developers using CoderzHub for seamless collaboration.</p>
+                <p>Join thousands of developers using CodeVerse for seamless collaboration.</p>
                 {!user ? (
                     <button onClick={() => navigate("/signup")}>Get Started Now</button>
                 ) : (

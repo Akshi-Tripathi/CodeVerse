@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="footer-container">
         
         <div className="footer-section about">
-          <h3>CoderzHub</h3>
+          <h3>CodeVerse</h3>
           <p>Empowering developers with real-world projects and collaborations. Build, deploy, and connect with like-minded coders.</p>
         </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} CoderzHub | Designed for Developers</p>
+        <p>&copy; {new Date().getFullYear()} CodeVerse | Designed for Developers</p>
       </div>
     </footer>
   );

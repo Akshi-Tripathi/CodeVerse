@@ -69,6 +69,7 @@
     display: grid;
     grid-template-columns: 280px 1fr 320px;
     gap: 1px;
+    margin-top: 2rem;
     height: calc(100vh - 64px);
     background: var(--background);
 }

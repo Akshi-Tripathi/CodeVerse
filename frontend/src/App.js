@@ -18,7 +18,7 @@ import { useAuth } from "./context/AuthContext";
 import { AuthProvider } from "./context/AuthContext.js";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from './components/ThemeProvider';
-import Rough from "./components/Rough.js";
+
 
 function App() {
   const [dots, setDots] = useState([]);
@@ -69,7 +69,6 @@ function App() {
               <Route path="/project" element={<ProtectedRoute><Project /></ProtectedRoute>} />
               <Route path="/codespace/:projectId" element={<ProtectedRoute><Codespace /></ProtectedRoute>} />
               <Route path="/edit-profile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
-              <Route path="/rough" element={<ProtectedRoute><Rough /></ProtectedRoute>} />
             </Routes>
             <Footer />
           </AuthProvider>

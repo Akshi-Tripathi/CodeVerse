@@ -36,7 +36,7 @@ const Navbar = () => {
 
     return (
         <nav>
-            <h2><Link to="/">CoderzHub</Link></h2>
+            <h2><Link to="/">CodeVerse</Link></h2>
             <ul>
                 {!user ? (
                     <>
@@ -55,7 +55,6 @@ const Navbar = () => {
                         <li><Link to="/dashboard">Dashboard</Link></li>
                         <li><Link to="/project">Projects</Link></li>
                         <li><Link to="/profile">Profile</Link></li>
-                        <li><Link to="/rough">Rough</Link></li>
                         <li className="theme-switcher">
                             <button onClick={() => setShowThemeMenu(!showThemeMenu)}>
                                 <FaPalette />
