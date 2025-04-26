@@ -1,0 +1,284 @@
+.dashboard {
+  padding: 2rem;
+  margin-top: 6rem;
+  text-align: center;
+  color: white;
+  min-height: calc(100vh - 6rem);
+  /* background: linear-gradient(135deg, rgba(17, 25, 40, 0.95), rgba(28, 41, 56, 0.95)); */
+}
+
+.dashboard-header {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #6ab3f8, #6f8ef2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.chart-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin: 1.5rem auto;
+  max-width: 900px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-label {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.tooltip-progress {
+  color: #8884d8;
+  margin: 4px 0;
+}
+
+.tooltip-time {
+  color: #82ca9d;
+  margin: 4px 0;
+}
+
+.dashboard-btn {
+  background: linear-gradient(45deg, #28a745, #34d058);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+.dashboard-btn:hover {
+  background: linear-gradient(45deg, #34d058, #28a745);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+.dashboard-btn:active {
+  transform: translateY(0);
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.search-bar {
+  margin: 1.5rem auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.recent-activity {
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: left;
+  color: white;
+}
+
+.recent-activity h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.recent-activity ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recent-activity li {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme="light"] .dashboard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+  color: black;
+}
+
+body[data-theme="light"] .dashboard-card,
+body[data-theme="light"] .chart-box {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .dashboard-btn {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+body[data-theme="light"] .dashboard-btn:hover {
+  background: linear-gradient(45deg, #0056b3, #007bff);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.dashboard-card.loading {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.sort-dropdown {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  height: 10px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  background: linear-gradient(45deg, #28a745, #34d058);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.charts-section {
+  margin: 2rem 0;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.chart-box {
+  width: 80%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-box h2 {
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+}

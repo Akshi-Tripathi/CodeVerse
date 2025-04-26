@@ -1,0 +1,32 @@
+.custom-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  background: linear-gradient(45deg, #6ab3f8, #6f8ef2);
+}
+
+.custom-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(106, 179, 248, 0.3);
+  background: linear-gradient(45deg, #6f8ef2, #6ab3f8);
+}
+
+.custom-button.add-project-button {
+  background: linear-gradient(45deg, #10b981, #059669);
+}
+
+.custom-button.add-project-button:hover {
+  background: linear-gradient(45deg, #059669, #10b981);
+}
+
+.custom-button.view-details-button {
+  background: linear-gradient(45deg, #6ab3f8, #6f8ef2);
+}
+
+.custom-button.change-status-button {
+  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+}

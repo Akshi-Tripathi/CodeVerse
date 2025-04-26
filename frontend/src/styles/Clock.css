@@ -1,0 +1,132 @@
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(145deg, 
+        rgba(var(--primary-rgb), 0.1),
+        rgba(var(--primary-rgb), 0.05));
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    transition: all 0.3s ease;
+}
+
+.clock-container:hover {
+    transform: translateY(-5px);
+   }
+
+.clock {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border: 8px solid var(--primary);
+    border-radius: 50%;
+    background: var(--surface);
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.2),
+        0 0 0 2px rgba(var(--primary-rgb), 0.1),
+        0 0 30px rgba(var(--primary-rgb), 0.1);
+    margin-bottom: 1.5rem;
+}
+
+/* Clock numbers */
+.number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-origin: center;
+    padding: 5px;
+}
+
+.number span {
+    display: inline-block;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Clock hands container */
+.hands-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Common hand styles */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    border-radius: 4px;
+}
+
+/* Hour hand */
+.hour-hand {
+    width: 4px;
+    height: 30%;
+    background: var(--primary);
+    box-shadow: 0 0 5px rgba(var(--primary-rgb), 0.3);
+}
+
+/* Minute hand */
+.minute-hand {
+    width: 3px;
+    height: 40%;
+    background: var(--secondary);
+    box-shadow: 0 0 5px rgba(var(--secondary-rgb), 0.3);
+}
+
+/* Second hand */
+.second-hand {
+    width: 2px;
+    height: 45%;
+    background: var(--accent);
+    box-shadow: 0 0 5px rgba(var(--accent-rgb), 0.3);
+}
+
+/* Center dot */
+.center-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
+}
+
+/* Digital time display */
+.digital-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    color: var(--text);
+    text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.3);
+    letter-spacing: 2px;
+    background: rgba(var(--primary-rgb), 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .clock {
+        width: 200px;
+        height: 200px;
+    }
+
+    .number span {
+        font-size: 1rem;
+    }
+
+    .digital-time {
+        font-size: 1.2rem;
+    }
+}

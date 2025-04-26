@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary: #64748b;
+    --accent: #22d3ee;
+    --background: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+}
+
+.profile-container {
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, var(--background), #1e293b); */
+    padding: 2rem;
+    color: #e2e8f0;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-content {
+    max-width: 1400px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    position: relative;
+    /* background: rgba(255, 255, 255, 0.1); */
+    /* backdrop-filter: blur(10px); */
+    border-radius: 20px;
+    padding: 2rem;
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); */
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+}
+
+.profile-left {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.profile-picture-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-status {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--background);
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
+}
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profile-header {
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 2rem;
+}
+
+.profile-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #6ab3f8, #6f8ef2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-header p {
+    color: #e2e8f0;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.profile-header p strong {
+    color: #6ab3f8;
+    margin-right: 0.5rem;
+}
+
+.info-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--secondary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.profile-bio {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    grid-column: 1 / -1;
+}
+
+.profile-bio h3 {
+    color: #6ab3f8;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+}
+
+.social-links h3 {
+    color: #6ab3f8;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-link {
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.profile-footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-left {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .profile-container {
+        padding: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Quantico", serif;
+    font-weight: 400;
+    font-style: normal;
+  align-items: center;
+  padding: 50px 10%;
+  
+}
+
+.hero {
+  margin-top: 10rem;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  background: #00a8ff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-family: "Quantico", serif;
+    font-weight: 400;
+    font-style: normal;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: #0080d6;
+  transform: scale(1.05);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+
+.clock-caption {
+    font-size: 1rem;
+    color: var(--textSecondary);
+    margin-top: 0.5rem;
+}
+
+.problem-statement, .features, .how-it-works, .use-cases, .testimonials, .cta {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.problem-statement h2, .features h2, .how-it-works h2, .use-cases h2, .testimonials h2, .cta h2 {
+  font-size: 2rem;
+  color: #00a8ff;
+  margin-bottom: 20px;
+}
+
+.problem-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.problem-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.problem-card:hover {
+  transform: scale(1.05);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.step:hover {
+  transform: scale(1.05);
+}
+
+
+.use-case-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.use-case-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.use-case-card:hover {
+  transform: scale(1.05);
+}
+
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  margin-top:1rem;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
+
+.cta button {
+  background: #00a8ff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-family: "Quantico", serif;
+    font-weight: 400;
+    font-style: normal;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta button:hover {
+  background: #0080d6;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .features-grid, .problem-cards, .steps, .use-case-grid {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+  }
+
+  .hero h1 {
+      font-size: 2rem;
+  }
+
+  .hero p {
+      font-size: 1rem;
+  }
+}

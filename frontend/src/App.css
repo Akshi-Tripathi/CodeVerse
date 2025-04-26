@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  /* Default theme variables will be overridden by theme selection */
+  --primary: #145ca9;
+  --secondary: #00bcd4;
+  --background: rgba(10, 25, 47, 0.95);
+  --surface: rgba(10, 25, 47, 0.85);
+  --surfaceLight: rgba(100, 255, 218, 0.15);
+  --text: #ffffff;
+  --textSecondary: #8892b0;
+  --border: #233554;
+  --accent: #64ffda;
+  --primary-rgb: 99, 102, 241;
+  --surface-rgb: 30, 41, 59;
+  --navBackground: rgba(10, 25, 47, 0.85);
+  --navShadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
+  --card-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+}
+
+body {
+    font-family: "Quantico", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text);
+    transition: all 0.3s ease;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+* {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+  }
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none; 
+}
+
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: moveDots linear infinite;
+    opacity: 0.3;
+    /* box-shadow: 0 0 10px var(--accent); */
+}
+
+[data-theme='synthwave'] .dot {
+  animation: neonPulse 2s infinite;
+}
+
+@keyframes moveDots {
+    0% { transform: translate(0, 0); opacity: 1; }
+    50% { transform: translate(20px, 30px); opacity: 0.8; }
+    100% { transform: translate(-20px, -30px); opacity: 1; }
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary); }
+  100% { box-shadow: 0 0 5px var(--accent); }
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-bottom: 50px; 
+}
