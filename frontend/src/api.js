@@ -167,7 +167,6 @@ export const fetchFriends = async () => {
 };
 
 
-
 const API_URL = "https://codeverse-iywl.onrender.com/api/project";
 
 const makeRequest = async (endpoint, method, body = null, token = null) => {
@@ -212,7 +211,7 @@ export const getProjects = async () => {
         throw new Error("No authentication token found!");
     }
 
-    const response = await fetch("http://localhost:5000/api/project/get-all-project", {
+    const response = await fetch("https://codeverse-iywl.onrender.com/api/project/get-all-project", {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`,
