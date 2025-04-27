@@ -5,7 +5,7 @@ export const registerUser = async (userData) => {
             formData.append(key, userData[key]);
         }
 
-        const response = await fetch(`http://localhost:5000/api/auth/register`, {
+        const response = await fetch(`https://codeverse-iywl.onrender.com/api/auth/register`, {
             method: "POST",
             body: formData,
         });
@@ -105,7 +105,7 @@ export const updateProfile = async (id,formData) => {
         throw new Error("No authentication token found!");
     }
 
-    const response = await fetch(`http://localhost:5000/api/auth/updateprofile/${id}`, {
+    const response = await fetch(`https://codeverse-iywl.onrender.com/api/auth/updateprofile/${id}`, {
         method: "PUT",
         headers: {
             //"Content-Type": "application/json",
@@ -129,7 +129,7 @@ export const deleteProfile = async (userId) => {
         throw new Error("No authentication token found!");
     }
 
-    const response = await fetch(`http://localhost:5000/api/auth/deleteprofile/${userId}`, {
+    const response = await fetch(`https://codeverse-iywl.onrender.com/api/auth/deleteprofile/${userId}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Bearer ${token}`,
@@ -168,7 +168,7 @@ export const fetchFriends = async () => {
 
 
 
-const API_URL = "http://localhost:5000/api/project";
+const API_URL = "https://codeverse-iywl.onrender.com/api/project";
 
 const makeRequest = async (endpoint, method, body = null, token = null) => {
     try {
@@ -268,7 +268,7 @@ export const changeProjectStatus = async (projectId, newStatus) => {
         throw new Error("No authentication token found!");
     }
 
-    const response = await fetch("http://localhost:5000/api/project/change-status-project", {
+    const response = await fetch("https://codeverse-iywl.onrender.com/api/project/change-status-project", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -293,7 +293,7 @@ export const getAllProjectFiles = async (projectId) => {
     return Array.isArray(response.files) ? response.files : [];
 };
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://codeverse-iywl.onrender.com/api';
 
 const makeRequest1 = async (url, options) => {
     try {
@@ -335,7 +335,7 @@ export const saveFileContent = async (projectId, filePath, content) => {
 
 export const compileCode = async (source_code, language_id, stdin = '') => {
     try {
-        const response = await fetch('http://localhost:5000/api/compile/compile-the-code', { 
+        const response = await fetch('https://codeverse-iywl.onrender.com/api/compile/compile-the-code', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -365,7 +365,7 @@ export async function deleteFile(projectId, filename) {
     console.log("Deleting file:", { projectId, filename });
 
     try {
-        const response = await fetch(`http://localhost:5000/api/project/${projectId}/files/${filename}`, {
+        const response = await fetch(`https://codeverse-iywl.onrender.com/api/project/${projectId}/files/${filename}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -503,7 +503,7 @@ export const getChats = async (projectId) => {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/api/chat/get-project/${projectId}`, {
+        const response = await fetch(`https://codeverse-iywl.onrender.com/api/chat/get-project/${projectId}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`,
